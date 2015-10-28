@@ -1,0 +1,21 @@
+//
+//  Common.pch
+//  杭电神器
+//
+//  Created by 吴玉铁 on 15/9/25.
+//  Copyright © 2015年 铁哥. All rights reserved.
+//
+
+#ifndef Common_pch
+#define Common_pch
+
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+
+#import <UIKit/UIKit.h>
+#import "UIViewExt.h"
+
+#define kPushNotification @"kPushNotification"
+#define kModalNotification @"kModalNotification"
+
+#endif /* Common_pch */
