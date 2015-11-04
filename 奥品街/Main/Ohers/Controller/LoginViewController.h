@@ -7,6 +7,8 @@
 //
 
 #import "BasePushViewController.h"
+#import "GreySearchTextField.h"
+#import "RegistViewController.h"
 
 @interface LoginViewController : BasePushViewController
 

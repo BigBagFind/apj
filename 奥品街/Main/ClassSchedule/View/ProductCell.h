@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "UIView+ViewController.h"
-#import "LoginViewController.h"
-#import "LoginNavController.h"
-#import "AttentionButton.h"
 
 @interface ProductCell : UICollectionViewCell
 

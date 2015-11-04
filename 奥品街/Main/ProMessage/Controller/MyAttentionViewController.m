@@ -38,6 +38,7 @@ static NSString *identity = @"attentionCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MyAttentionCell *cell = [tableView dequeueReusableCellWithIdentifier:identity];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

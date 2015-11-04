@@ -46,6 +46,7 @@
 		819740521BE343FB00A22706 /* ProMessageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 819740511BE343FB00A22706 /* ProMessageTableView.m */; };
 		819740581BE36F8000A22706 /* UIViewController+AlertSheetAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 819740571BE36F8000A22706 /* UIViewController+AlertSheetAction.m */; };
 		819842CB1BE9964D00C80640 /* AddToShopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 819842CA1BE9964D00C80640 /* AddToShopButton.m */; };
+		819842CE1BE9DF4C00C80640 /* RegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 819842CD1BE9DF4C00C80640 /* RegistViewController.m */; };
 		81ACEB1B1BE71A9200181FB3 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 81ACEB1A1BE71A9200181FB3 /* libicucore.tbd */; };
 		81ACEB1D1BE71B4F00181FB3 /* DetailHelpCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81ACEB1C1BE71B4F00181FB3 /* DetailHelpCell.xib */; };
 		81ACEB201BE72F4600181FB3 /* ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81ACEB1F1BE72F4600181FB3 /* ShareView.m */; };
@@ -262,6 +263,8 @@
 		819740571BE36F8000A22706 /* UIViewController+AlertSheetAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AlertSheetAction.m"; sourceTree = "<group>"; };
 		819842C91BE9964D00C80640 /* AddToShopButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddToShopButton.h; sourceTree = "<group>"; };
 		819842CA1BE9964D00C80640 /* AddToShopButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddToShopButton.m; sourceTree = "<group>"; };
+		819842CC1BE9DF4C00C80640 /* RegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistViewController.h; sourceTree = "<group>"; };
+		819842CD1BE9DF4C00C80640 /* RegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistViewController.m; sourceTree = "<group>"; };
 		81ACEB1A1BE71A9200181FB3 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		81ACEB1C1BE71B4F00181FB3 /* DetailHelpCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailHelpCell.xib; sourceTree = "<group>"; };
 		81ACEB1E1BE72F4600181FB3 /* ShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareView.h; sourceTree = "<group>"; };
@@ -472,6 +475,8 @@
 			children = (
 				8175231E1BE8D46200A0DA8D /* LoginViewController.h */,
 				8175231F1BE8D46200A0DA8D /* LoginViewController.m */,
+				819842CC1BE9DF4C00C80640 /* RegistViewController.h */,
+				819842CD1BE9DF4C00C80640 /* RegistViewController.m */,
 				810344B81BE8E71D00D5E798 /* LoginNavController.h */,
 				810344B91BE8E71D00D5E798 /* LoginNavController.m */,
 			);
@@ -1268,6 +1273,7 @@
 				81F2F6281BDF22C5003A6292 /* ViewController.m in Sources */,
 				81165A7A1BE85F7C00242C67 /* SetViewController.m in Sources */,
 				81E4723A1BE1FDE9001109A5 /* CatalogAllView.m in Sources */,
+				819842CE1BE9DF4C00C80640 /* RegistViewController.m in Sources */,
 				810344C01BE8EFA500D5E798 /* AttentionButton.m in Sources */,
 				818C11591BE4E38D002B72D1 /* AboutApjViewController.m in Sources */,
 				818669C11BE645BB000013CC /* HelpSectionHeaderButoon.m in Sources */,

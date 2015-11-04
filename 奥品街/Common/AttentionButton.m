@@ -23,6 +23,7 @@
 
 
 - (void)setAttention:(BOOL)attention{
+    //登录
     if (attention) {
         [self setTitle:@"已关注" forState:UIControlStateNormal];
         [self setTitleColor:[UIColor colorWithRed:39.0 / 255.0 green:142.0 / 255.0 blue:241.0 / 255.0 alpha:1] forState:UIControlStateNormal];
@@ -37,8 +38,13 @@
 }
 
 - (void)action{
-    self.selected = !self.selected;
-    [self setAttention:self.selected];
+    LoginViewController *loginVc = [[LoginViewController alloc]init];
+    LoginNavController *nav = [[LoginNavController alloc]initWithRootViewController:loginVc];
+    [self.viewController.navigationController presentViewController:nav animated:YES completion:^{
+
+    }];
+   // self.selected = !self.selected;
+    //[self setAttention:self.selected];
 }
 
 @end

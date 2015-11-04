@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIView+ViewController.h"
+#import "LoginNavController.h"
+#import "LoginViewController.h"
 
 @interface AttentionButton : UIButton
 

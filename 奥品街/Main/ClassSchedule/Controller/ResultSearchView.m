@@ -10,8 +10,6 @@
 
 @implementation ResultSearchView
 
-
-
 - (void)cancelAction:(UIButton *)button{
     self.searchField.text = nil;
     self.hidden = YES;

@@ -23,9 +23,6 @@
                             <constraint firstAttribute="height" constant="24" id="alx-sr-3g7"/>
                             <constraint firstAttribute="width" constant="78" id="xod-D6-CvP"/>
                         </constraints>
-                        <connections>
-                            <action selector="addToShopAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Sib-ue-smS"/>
-                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="加载中..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeM-jN-7av">
                         <rect key="frame" x="5" y="164" width="168" height="44"/>
@@ -44,9 +41,6 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="65" id="jqt-1i-r23"/>
                         </constraints>
-                        <connections>
-                            <action selector="AttentionAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="dy5-qX-gJC"/>
-                        </connections>
                     </button>
                 </subviews>
                 <animations/>
