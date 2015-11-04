@@ -10,4 +10,17 @@
 
 @implementation HelpCenterViewController
 
+
+- (void)viewDidLoad{
+    [super viewDidLoad];
+    self.title = @"帮助中心";
+    [self _createSubviews];
+}
+
+- (void)_createSubviews{
+    HelpTableView *helpTable = [[HelpTableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 64) style:UITableViewStylePlain];
+    helpTable.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:helpTable];
+}
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PurchasedGoodView.h"
 
 @interface OrdersCell : UITableViewCell
 

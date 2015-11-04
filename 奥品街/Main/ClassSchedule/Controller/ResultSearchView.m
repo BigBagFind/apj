@@ -10,12 +10,27 @@
 
 @implementation ResultSearchView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+
+- (void)cancelAction:(UIButton *)button{
+    self.searchField.text = nil;
+    self.hidden = YES;
+    self.viewController.navigationController.navigationBarHidden = NO;
+    [self.searchField resignFirstResponder];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
 }
-*/
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    //隐藏视图，重新加载
+    self.hidden = YES;
+    self.viewController.navigationController.navigationBarHidden = NO;
+    [self.searchField resignFirstResponder];
+    if (self.transportText) {
+        self.transportText(self.searchField.text);
+    }
+    self.searchField.text = nil;
+    
+    return YES;
+}
 
 @end

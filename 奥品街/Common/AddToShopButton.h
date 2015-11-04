@@ -10,4 +10,8 @@
 
 @interface AddToShopButton : UIButton
 
+
+- (void)addToShop:(BOOL)isAdding;
+
+
 @end

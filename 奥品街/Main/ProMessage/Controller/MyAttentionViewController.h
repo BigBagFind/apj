@@ -7,6 +7,7 @@
 //
 
 #import "BasePushViewController.h"
+#import "MyAttentionCell.h"
 
 @interface MyAttentionViewController : BasePushViewController
 

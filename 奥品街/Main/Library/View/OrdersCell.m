@@ -11,13 +11,15 @@
 @implementation OrdersCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    PurchasedGoodView *goodsView = [[[NSBundle mainBundle] loadNibNamed:@"PurchasedGoodView" owner:self options:nil] lastObject];
+    goodsView.frame = CGRectMake(0, 40, kScreenWidth, 75);
+    [self.contentView addSubview:goodsView];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+    
 }
 
 @end

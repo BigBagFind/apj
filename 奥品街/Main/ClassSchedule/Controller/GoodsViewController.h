@@ -10,10 +10,10 @@
 #import "CountryView.h"
 #import "ProductsList.h"
 #import "SearchTextField.h"
-#import "SearchViewController.h"
 #import "SearchResultViewController.h"
+#import "SearchView.h"
+#import "CatalogAllView.h"
 
-
-@interface GoodsViewController : BaseViewController<UIScrollViewDelegate,UITextFieldDelegate>
+@interface GoodsViewController : BaseViewController<UITextFieldDelegate>
 
 @end

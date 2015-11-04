@@ -10,14 +10,11 @@
 
 @implementation BrandListViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
+- (IBAction)AttentionAction:(AttentionButton *)sender {
+    sender.selected = !sender.selected;
+    [sender setAttention:sender.selected];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
-}
 
 @end

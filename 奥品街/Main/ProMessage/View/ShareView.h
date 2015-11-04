@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShareViewCell.h"
 
-@interface ShareView : UIView
+@interface ShareView : UIView<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>{
+    NSArray *_images;
+    NSArray *_titles;
+    UIView *_maskView;
+}
+
+
+
 
 @end

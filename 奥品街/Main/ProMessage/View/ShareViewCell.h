@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ShareViewCell : UICollectionViewCell
+@property (nonatomic,strong) UIImageView *iconView;
+@property (nonatomic,strong) UILabel *titleLabel;
+@property (nonatomic,copy) NSString *imageName;
+@property (nonatomic,copy) NSString *title;
+
 
 @end

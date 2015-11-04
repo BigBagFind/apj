@@ -5,9 +5,8 @@
 //  Created by 吴玉铁 on 15/10/27.
 //  Copyright © 2015年 铁哥. All rights reserved.
 //
-
 #import "BrandViewController.h"
-
+static NSString *identity = @"brandCell";
 @interface BrandViewController ()
 
 @end
@@ -16,22 +15,51 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.title = @"品牌";
+    [self _createSubviews];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)_createSubviews{
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    //单元格大小
+    CGFloat width = (kScreenWidth - 20 * 6) / 3;
+    layout.itemSize = CGSizeMake(width, width);
+    UICollectionView *brandsView = [[UICollectionView alloc] initWithFrame:CGRectMake( 0, 0, kScreenWidth, kScreenHeight - 64) collectionViewLayout:layout];
+    brandsView.dataSource = self;
+    brandsView.delegate = self;
+    brandsView.backgroundColor = [UIColor clearColor];
+    [brandsView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:identity];
+    [self.view addSubview:brandsView];
+    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 20;
 }
-*/
 
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identity forIndexPath:indexPath];
+    
+    cell.backgroundColor = [UIColor clearColor];
+    cell.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"border_white"]];
+    return cell;
+    
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+    //上坐下右
+    return UIEdgeInsetsMake( 20, 20, 20, 20);
+    
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    BrandListViewController *brandListVc = [[BrandListViewController alloc]init];
+    brandListVc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:brandListVc animated:YES];
+    //手势打开
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+    }
+    
+}
 @end

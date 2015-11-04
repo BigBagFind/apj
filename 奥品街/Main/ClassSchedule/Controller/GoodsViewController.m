@@ -18,22 +18,18 @@
     UIScrollView *_scrollView;
     SearchTextField *_searchField;
     UIButton *_leftItem;
+    SearchView *_searchView;
 }
 
 @end
 
 @implementation GoodsViewController
 
-- (void)dealloc{
-    [[NSNotificationCenter defaultCenter]removeObserver:self];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self _setNavItems];
     [self _createViews];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(pushSearchAction:) name:kPushNotification object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(modalSearchAction:) name:kModalNotification object:nil];
+ 
 }
 
 #pragma mark-设置导航栏视图
@@ -76,39 +72,9 @@
     countryView.backgroundColor = [UIColor clearColor];
     [_countryBgView addSubview:countryView];
     _countryBgView.hidden = YES;
-    //分类栏
+    //分类视图
     NSArray *titles = @[@"奶粉",@"保健品",@"化妆品"];
-    UIView *categoryView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 40)];
-    categoryView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:categoryView];
-    CGFloat itemWidth = kScreenWidth / 3;
-    for (NSInteger i = 0; i < 3; i ++) {
-        UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(i * itemWidth,0, itemWidth,categoryView.height)];
-        [categoryView addSubview:button];
-        [button setTitle:titles[i] forState:UIControlStateNormal];
-        [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        button.titleLabel.font = [UIFont systemFontOfSize:15];
-        [button addTarget:self action:@selector(selectedAction:) forControlEvents:UIControlEventTouchUpInside];
-        button.tag = 300 + i;
-        if (i == 0) {
-            [button setTitleColor:[UIColor colorWithRed:16.0 / 255.0 green:120.0 / 255.0 blue:222.0 / 255.0 alpha:1] forState:UIControlStateNormal];
-        }
-    }
-    //选择线条
-    _selectedView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"list_bg_line"]];
-    _selectedView.frame = CGRectMake( 0, categoryView.height - 2, itemWidth, 2);
-    [categoryView addSubview:_selectedView];
-    _selectTag = 300;
-    //底部视图创建
-    _scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 40, kScreenWidth, kScreenHeight - 64 - 49 )];
-    _scrollView.backgroundColor = [UIColor clearColor];
-    _scrollView.pagingEnabled = YES;
-    _scrollView.delegate = self;
-    _scrollView.contentSize = CGSizeMake(kScreenWidth * 3, _scrollView.height);
-    _scrollView.showsVerticalScrollIndicator = NO;
-    _scrollView.showsHorizontalScrollIndicator = NO;
-    [self.view addSubview:_scrollView];
-    //商品列表
+    NSMutableArray *views = [NSMutableArray array];
     for (NSInteger i = 0; i < 3; i ++) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         //单元格大小
@@ -116,72 +82,36 @@
         layout.minimumInteritemSpacing = 5;
         layout.minimumLineSpacing = 5;
         layout.itemSize = CGSizeMake(width, 250);
-        ProductsList *productsListView = [[ProductsList alloc] initWithFrame:CGRectMake(i * kScreenWidth, 0, kScreenWidth, kScreenHeight - 64 - 49 - 40) collectionViewLayout:layout];
+        ProductsList *productsListView = [[ProductsList alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 64 - 49 - 40) collectionViewLayout:layout];
         productsListView.backgroundColor = [UIColor clearColor];
-        productsListView.tag = 500 + i;
-        [_scrollView addSubview:productsListView];
+        [views addObject:productsListView];
     }
-
-    
+    CatalogAllView *catalogView = [[CatalogAllView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 64 -49) Titles:titles ContentViews:views];
+    [self.view addSubview:catalogView];
+    //搜索视图
+    _searchView = [[SearchView alloc]initWithFrame:CGRectMake( 0, 0, kScreenWidth, kScreenHeight)];
+    [self.view addSubview:_searchView];
+    _searchView.hidden = YES;
 }
 
 #pragma mark-按钮点击事件
 - (void)leftAction:(UIButton *)button{
     _arrowImage.selected = !_arrowImage.selected;
     _countryBgView.hidden = !_countryBgView.hidden;
-    
-}
-
-- (void)selectedAction:(UIButton *)button{
-    //先取消上一次的颜色
-    UIButton *previousButton = (UIButton *)[self.view viewWithTag:_selectTag];
-    [previousButton setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    //设置选中选项
-    [button setTitleColor:[UIColor colorWithRed:40.0 / 255.0 green:142.0 / 255.0 blue:238.0 / 255.0 alpha:1] forState:UIControlStateNormal];
-    CGFloat itemWidth = kScreenWidth / 3;
-    //拿到对应商品列表
-    [UIView animateWithDuration:0.3 animations:^{
-        _selectedView.left = (button.tag - 300) * itemWidth;
-        [_scrollView setContentOffset:CGPointMake((button.tag - 300) * kScreenWidth, 0)];
-    }];
-    _selectTag = button.tag;
-    
-}
-
-#pragma mark-滑动视图代理
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    _selectedView.left = scrollView.contentOffset.x / 3;
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    NSInteger index = scrollView.contentOffset.x / kScreenWidth;
-    UIButton *button = (UIButton *)[self.view viewWithTag:index + 300];
-    [self selectedAction:button];
+   
 }
 
 #pragma mark-搜索视图代理
-- (void)textFieldDidBeginEditing:(UITextField *)textField{
-    [textField resignFirstResponder];
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    //国家视图先隐藏
     _countryBgView.hidden = YES;
-    SearchViewController *searchVc = [[SearchViewController alloc]init];
-    [self.navigationController presentViewController:searchVc animated:NO completion:nil];
+    //搜索视图隐藏
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    _searchView.hidden = NO;
+    self.navigationController.navigationBarHidden = YES;
+    [_searchView.searchField becomeFirstResponder];
+    return NO;
 }
-
-#pragma mark-通知方法
-- (void)pushSearchAction:(NSNotification *)notification{
-    NSString *text = notification.userInfo[@"searchText"];
-    SearchResultViewController *resultVc = [[SearchResultViewController alloc]init];
-    resultVc.text = text;
-    resultVc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:resultVc animated:YES];
-}
-- (void)modalSearchAction:(NSNotification *)notification{
-    NSString *text = notification.userInfo[@"searchText"];
-    SearchViewController *searchVc = [[SearchViewController alloc]init];
-    searchVc.text = text;
-    [self.navigationController presentViewController:searchVc animated:NO completion:nil];
-}
-
-
 
 @end

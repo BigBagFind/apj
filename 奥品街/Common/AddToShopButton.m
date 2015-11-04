@@ -10,12 +10,29 @@
 
 @implementation AddToShopButton
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+
+- (void)awakeFromNib{
+    
+    [self setBackgroundImage:[UIImage imageNamed:@"add_a"] forState:UIControlStateNormal];
+    [self addTarget:self action:@selector(action) forControlEvents:UIControlEventTouchUpInside];
+    
 }
-*/
+
+- (void)addToShop:(BOOL)isAdding{
+    if(isAdding) {
+        
+        [self setBackgroundImage:[UIImage imageNamed:@"add_b"] forState:UIControlStateNormal];
+    }else{
+        
+        [self setBackgroundImage:[UIImage imageNamed:@"add_a"] forState:UIControlStateNormal];
+    }
+}
+
+- (void)action{
+    self.selected = !self.selected;
+    [self addToShop:self.selected];
+    NSLog(@"111");
+}
+
 
 @end

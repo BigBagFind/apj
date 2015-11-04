@@ -8,7 +8,9 @@
 
 #import "OrderViewController.h"
 
-@interface OrderViewController ()
+@interface OrderViewController (){
+  
+}
 
 @end
 
@@ -16,22 +18,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor yellowColor];
+    self.title = @"订单";
+    [self _createSubviews];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)_createSubviews{
+    NSArray *titles = @[@"全部",@"待付款(3)",@"待发货",@"已发货(15)"];
+    NSMutableArray *views = [NSMutableArray array];
+    for (NSInteger i = 0; i < 4; i ++) {
+        OrdersListView *view = [[OrdersListView alloc]initWithFrame:CGRectMake(0, 5, kScreenWidth, kScreenHeight - 64 - 49 - 40 + 5) style:UITableViewStyleGrouped];
+        view.backgroundColor = [UIColor clearColor];
+        [views addObject:view];
+    }
+    CatalogAllView *catalogView = [[CatalogAllView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 64 - 49) Titles:titles ContentViews:views];
+    [self.view addSubview:catalogView];
+    
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
 
 @end

@@ -6,8 +6,7 @@
 //  Copyright © 2015年 铁哥. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-@interface AboutApjViewController : UIViewController
+#import "BasePushViewController.h"
+@interface AboutApjViewController : BasePushViewController
 
 @end

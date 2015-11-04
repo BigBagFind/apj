@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MBProgressHUD.h"
 @interface BaseViewController : UIViewController
+
+
+
+- (void)showHUD:(NSString *)title;
+- (void)hideHUD;
+- (void)completeHUD:(NSString *)title;
 
 @end

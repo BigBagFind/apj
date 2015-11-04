@@ -7,9 +7,10 @@
 //
 
 #import "SearchResultViewController.h"
-
+#import "ResultSearchView.h"
 @interface SearchResultViewController (){
     GreySearchTextField *_searchField;
+    ResultSearchView *_searchView;
 }
 
 @end
@@ -20,6 +21,16 @@
     [super viewDidLoad];
     [self _setNavItems];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    //搜索视图
+    _searchView = [[ResultSearchView alloc]initWithFrame:CGRectMake( 0, 0, kScreenWidth, kScreenHeight)];
+    [self.view addSubview:_searchView];
+    _searchView.hidden = YES;
+    //接受text
+    __weak SearchResultViewController *weakSelf = self;
+    _searchView.transportText = ^(NSString *text){
+        __strong SearchResultViewController *strongSelf = weakSelf;
+        strongSelf->_searchField.text = text;
+    };
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -38,7 +49,6 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftItem];
     [leftItem addTarget:self action:@selector(leftAction:) forControlEvents:UIControlEventTouchUpInside];
     // 搜索框
-    //搜索框~背景图:input_bg_blue
     UIImageView *leftImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"search_grey"]];
     leftImage.frame = CGRectMake(0, 0, 17, 17);
     _searchField = [[GreySearchTextField alloc]initWithFrame:CGRectMake(55 , 5,kScreenWidth - 70, 32) IconView:leftImage];
@@ -54,6 +64,7 @@
 }
 
 - (void)leftAction:(UIButton *)button{
+    
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     [_searchField resignFirstResponder];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:39.0 / 255.0 green:142.0 / 255.0 blue:241.0 / 255.0 alpha:1];
@@ -62,21 +73,16 @@
     
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField{
-    [self resignFirstResponder];
-    
-    SearchViewController *searchVc = [[SearchViewController alloc]init];
-    [self.navigationController presentViewController:searchVc animated:NO completion:nil];
-
-//    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-//    [_searchField resignFirstResponder];
-//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:39.0 / 255.0 green:142.0 / 255.0 blue:241.0 / 255.0 alpha:1];
-//    _searchField.hidden = YES;
-//    [self.navigationController popToRootViewControllerAnimated:NO];
-//    
-//    NSDictionary *dic = @{@"searchText":_searchField.text};
-//    NSNotification *notification =[NSNotification notificationWithName:kModalNotification object:nil userInfo:dic];
-//    [[NSNotificationCenter defaultCenter]postNotification:notification];
-    
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    //键盘响应
+    [[NSNotificationCenter defaultCenter]postNotificationName:kBecomeFisrtNotification object:nil];
+    //搜索视图隐藏
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    _searchView.hidden = NO;
+    _searchView.searchField.text = _searchField.text;
+    self.navigationController.navigationBarHidden = YES;
+    [_searchView.searchField becomeFirstResponder];
+    return NO;
 }
+
 @end

@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   HelpCenterList.plist
-   奥品街
-
-   Created by 吴玉铁 on 15/10/31.
-   Copyright (c) 2015年 铁哥. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-    
-    </dict>
+<dict>
+	<key>代购常见问题</key>
+	<string>1.什么是代购，代购有哪些好处？
+地产品，安全有保障，保健品奶粉质量远远超过国内其他产品，让家人身体更健
+2.请说明代购有哪些流程？
+地产品，安全有保障，保健品奶粉质量远远超过国内其</string>
+	<key>积分/等级/优惠券</key>
+	<string>2</string>
+	<key>订单/包裹/配送相关</key>
+	<string>3</string>
+	<key>售后问题</key>
+	<string>4</string>
+	<key>支付/退款</key>
+	<string>5</string>
+	<key>国际转运相关问题</key>
+	<string>6</string>
+	<key>邮寄限制</key>
+	<string>7</string>
+</dict>
 </plist>

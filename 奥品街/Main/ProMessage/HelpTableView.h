@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetailHelpCell.h"
+#import "HelpSectionHeaderButoon.h"
+#import "TggEasyTextTool.h"
 
-@interface HelpTableView : UITableView
+@interface HelpTableView : UITableView<UITableViewDataSource,UITableViewDelegate>{
+    NSArray *_listTitles;
+    NSArray *_listcontents;
+    BOOL stateOfopen[10];
+    HelpSectionHeaderButoon *_selectedButton;
+}
+
+
 
 @end

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OrdersCell.h"
+#import "GoodsDetailCell.h"
+#import "BottomCell.h"  
 
-@interface GoodsDetailView : UITableView
+@interface GoodsDetailView : UITableView<UITableViewDataSource,UITableViewDelegate>
 
 @end

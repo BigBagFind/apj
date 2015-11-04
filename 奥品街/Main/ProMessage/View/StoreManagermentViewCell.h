@@ -10,4 +10,10 @@
 
 @interface StoreManagermentViewCell : UITableViewCell
 
+
+@property (weak, nonatomic) IBOutlet UIImageView *storeIcon;
+@property (weak, nonatomic) IBOutlet UILabel *keyLable;
+@property (weak, nonatomic) IBOutlet UILabel *valueLabel;
+
+
 @end

@@ -1,18 +1,96 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="BalanceCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="balanceCell" id="KGk-i7-Jjw" customClass="BalanceCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UPv-pD-p3b">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单编号：加载中..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xh8-gn-Z5e">
+                                <rect key="frame" x="8" y="8" width="215" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="215" id="LbH-mi-IIh"/>
+                                    <constraint firstAttribute="height" constant="20" id="wWz-6d-2MS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未到账" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lr-Nk-exd">
+                                <rect key="frame" x="269" y="8" width="43" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="8vt-Ra-wEM"/>
+                                    <constraint firstAttribute="width" constant="43" id="wX7-Wz-Sdp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92941176469999998" green="0.97647058819999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="0lr-Nk-exd" secondAttribute="trailing" constant="8" id="7lP-v5-OSu"/>
+                            <constraint firstItem="0lr-Nk-exd" firstAttribute="top" secondItem="UPv-pD-p3b" secondAttribute="top" constant="8" id="IuO-Jh-1Ew"/>
+                            <constraint firstAttribute="height" constant="35" id="OwF-7L-RmW"/>
+                            <constraint firstItem="Xh8-gn-Z5e" firstAttribute="leading" secondItem="UPv-pD-p3b" secondAttribute="leading" constant="8" id="aFj-ld-6Mr"/>
+                            <constraint firstItem="Xh8-gn-Z5e" firstAttribute="top" secondItem="UPv-pD-p3b" secondAttribute="top" constant="8" id="n66-dC-9Bu"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="销售价：加载中..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbz-to-8bh">
+                        <rect key="frame" x="176" y="71" width="105" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="reK-V7-eh2"/>
+                            <constraint firstAttribute="width" constant="105" id="sMe-Nk-T2U"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="＋00.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5v-QK-rRO">
+                        <rect key="frame" x="8" y="46" width="161" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="161" id="Mub-72-ds1"/>
+                            <constraint firstAttribute="height" constant="21" id="eAm-PM-t9a"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="进货价：加载中..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htG-IJ-1u5">
+                        <rect key="frame" x="8" y="71" width="128" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="Hpo-ne-ZFx"/>
+                            <constraint firstAttribute="width" constant="128" id="pbE-qw-XDJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="UPv-pD-p3b" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="7gq-iJ-5td"/>
+                    <constraint firstItem="UPv-pD-p3b" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="8Xf-G2-7OU"/>
+                    <constraint firstItem="zbz-to-8bh" firstAttribute="top" secondItem="htG-IJ-1u5" secondAttribute="top" id="8yO-Sh-T5M"/>
+                    <constraint firstItem="x5v-QK-rRO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="9Cq-kw-ewD"/>
+                    <constraint firstItem="htG-IJ-1u5" firstAttribute="top" secondItem="x5v-QK-rRO" secondAttribute="bottom" constant="4" id="9sf-hu-1ZH"/>
+                    <constraint firstItem="htG-IJ-1u5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Gif-I0-KGI"/>
+                    <constraint firstItem="x5v-QK-rRO" firstAttribute="top" secondItem="UPv-pD-p3b" secondAttribute="bottom" constant="11" id="Rh5-OV-Qyl"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="UPv-pD-p3b" secondAttribute="trailing" constant="-8" id="i22-7u-WWo"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="zbz-to-8bh" secondAttribute="trailing" constant="31" id="nPn-u8-zz8"/>
+                </constraints>
             </tableViewCellContentView>
+            <point key="canvasLocation" x="248" y="230"/>
         </tableViewCell>
     </objects>
 </document>

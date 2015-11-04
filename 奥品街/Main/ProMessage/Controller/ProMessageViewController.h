@@ -7,7 +7,16 @@
 //
 
 #import "BaseViewController.h"
+#import "ProMessageTableView.h"
+#import "UIViewController+AlertSheetAction.h"
+#import "ShareView.h"
+#import "SetViewController.h"
+#import "MyAttentionViewController.h"
 
-@interface ProMessageViewController : BaseViewController
+@interface ProMessageViewController : BaseViewController<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+
+
+
+
 
 @end

@@ -7,7 +7,10 @@
 //
 
 #import "BasePushViewController.h"
-
-@interface SetViewController : BasePushViewController
+#import "SetMessageViewController.h"    
+@interface SetViewController : BasePushViewController{
+    NSArray *_images;
+    NSArray *_titles;
+}
 
 @end

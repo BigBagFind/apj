@@ -6,8 +6,9 @@
 //  Copyright © 2015年 铁哥. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BasePushViewController.h"
+#import "BalanceCell.h"
 
-@interface MyBalanceViewController : BaseViewController
+@interface MyBalanceViewController : BasePushViewController<UITableViewDataSource,UITableViewDelegate>
 
 @end

@@ -6,8 +6,10 @@
 //  Copyright © 2015年 铁哥. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseViewController.h"
+#import "GoodsDetailView.h"
 
-@interface DetailViewController : UIViewController
+
+@interface DetailViewController : BaseViewController
 
 @end

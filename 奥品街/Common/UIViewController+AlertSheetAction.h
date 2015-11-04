@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PickerViewController.h"
 
-@interface UIViewController (AlertSheetAction)
+@interface UIViewController (AlertSheetAction)<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+
+
+- (void)appearAlertController;
+
 
 @end

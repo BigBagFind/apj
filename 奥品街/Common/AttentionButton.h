@@ -10,4 +10,8 @@
 
 @interface AttentionButton : UIButton
 
+
+- (void)setAttention:(BOOL)attention;
+
+
 @end

@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
+#import "BrandListViewController.h"
 
-@interface BrandViewController : BaseViewController
+
+@interface BrandViewController : BaseViewController<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @end

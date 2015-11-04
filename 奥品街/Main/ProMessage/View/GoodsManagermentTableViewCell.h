@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "UIView+ViewController.h"
 @interface GoodsManagermentTableViewCell : UITableViewCell
 
 @end

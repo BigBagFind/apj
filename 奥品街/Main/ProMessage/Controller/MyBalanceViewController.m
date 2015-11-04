@@ -7,8 +7,10 @@
 //
 
 #import "MyBalanceViewController.h"
-
-@interface MyBalanceViewController ()
+static NSString *identity = @"balanceCell";
+@interface MyBalanceViewController (){
+    UITableView *_balanceList;
+}
 
 @end
 
@@ -16,22 +18,40 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.title = @"我的返利";
+    [self _createSubviews];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)_createSubviews{
+    _balanceList = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 64) style:UITableViewStyleGrouped];
+    [self.view addSubview:_balanceList];
+    _balanceList.backgroundColor = [UIColor clearColor];
+    _balanceList.delegate = self;
+    _balanceList.dataSource = self;
+    _balanceList.rowHeight = 100;
+    _balanceList.sectionFooterHeight = 0;
+    [_balanceList registerNib:[UINib nibWithNibName:@"BalanceCell" bundle:nil] forCellReuseIdentifier:identity];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 8;
 }
-*/
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return 0.1;
+    }
+    return 8;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    BalanceCell *cell = [tableView dequeueReusableCellWithIdentifier:identity forIndexPath:indexPath];
+    return cell;
+}
+
 
 @end

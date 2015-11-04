@@ -7,8 +7,10 @@
 //
 
 #import "StoreManagementViewController.h"
-
-@interface StoreManagementViewController ()
+static NSString *identity = @"storeCell";
+@interface StoreManagementViewController ()<UITableViewDelegate,UITableViewDataSource>{
+    UITableView *_tableView;
+}
 
 @end
 
@@ -16,22 +18,50 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.title = @"店铺管理";
+    [self _createTable];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (void)_createTable{
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 64) style:UITableViewStylePlain];
+    [self.view addSubview:_tableView];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.tableFooterView = [[UIView alloc]init];
+    [_tableView registerNib:[UINib nibWithNibName:@"StoreManagermentViewCell" bundle:nil] forCellReuseIdentifier:identity];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 6;
 }
-*/
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        return 70;
+    }
+    return 44;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    StoreManagermentViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identity];
+    
+    if (indexPath.row != 0) {
+        cell.storeIcon.image = nil;
+    }
+    if (indexPath.row == 0) {
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        [self appearAlertController];
+    }
+    
+}
+
+
 
 @end

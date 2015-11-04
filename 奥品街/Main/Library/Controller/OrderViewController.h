@@ -7,6 +7,8 @@
 //
 
 #import "BaseViewController.h"
+#import "CatalogAllView.h"
+#import "OrdersListView.h"
 
 @interface OrderViewController : BaseViewController
 

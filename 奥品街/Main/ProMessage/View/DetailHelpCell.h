@@ -10,4 +10,8 @@
 
 @interface DetailHelpCell : UITableViewCell
 
+@property (nonatomic,copy) NSString *text;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+
+
 @end

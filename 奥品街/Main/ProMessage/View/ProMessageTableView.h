@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIView+ViewController.h"
+#import "AboutApjViewController.h"
+#import "HelpCenterViewController.h"
+#import "MyBalanceViewController.h"
+#import "GoodsManagementViewController.h"
+#import "StoreManagementViewController.h"
 
-@interface ProMessageTableView : UITableView
+@interface ProMessageTableView : UITableView<UITableViewDataSource,UITableViewDelegate>{
+    NSArray *_titles;
+    NSArray *_icons;
+    
+}
+
 
 @end

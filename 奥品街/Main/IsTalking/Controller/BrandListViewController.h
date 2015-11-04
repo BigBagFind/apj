@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
+#import "BrandListViewCell.h"
 
-@interface BrandListViewController : BaseViewController
+
+@interface BrandListViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
 
 @end

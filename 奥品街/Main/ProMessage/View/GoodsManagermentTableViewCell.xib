@@ -1,18 +1,105 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="GoodsManagermentTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="goodsManagerCell" rowHeight="114" id="KGk-i7-Jjw" customClass="GoodsManagermentTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="330" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="330" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8q-z0-icU">
+                        <rect key="frame" x="285" y="35" width="30" height="30"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="Eue-01-uzg"/>
+                            <constraint firstAttribute="height" constant="30" id="uZc-Sm-mnG"/>
+                        </constraints>
+                        <state key="normal" title="下架"/>
+                        <connections>
+                            <action selector="downShelfAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8Lp-Pz-BsW"/>
+                        </connections>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="product_square_box.png" translatesAutoresizingMaskIntoConstraints="NO" id="aQl-bf-JhZ">
+                        <rect key="frame" x="8" y="10" width="80" height="80"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="eoI-uy-esC"/>
+                            <constraint firstAttribute="height" constant="80" id="m0h-bY-GJ3"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="暂无" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLx-ai-8d0">
+                        <rect key="frame" x="96" y="10" width="181" height="40"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="fLX-gj-oxS"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥???" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUf-hQ-ass">
+                        <rect key="frame" x="96" y="53" width="68" height="21"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="2Wq-Pb-Kp6"/>
+                            <constraint firstAttribute="width" constant="68" id="TAO-T1-Zit"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="库存: 暂无" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCl-5H-f5e">
+                        <rect key="frame" x="172" y="53" width="86" height="21"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="86" id="Rj4-4Q-Vb7"/>
+                            <constraint firstAttribute="height" constant="21" id="xzV-Ir-OQg"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总销量：暂无" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sg9-nV-Ojc">
+                        <rect key="frame" x="97" y="70" width="151" height="21"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="Q85-vN-urh"/>
+                            <constraint firstAttribute="width" constant="151" id="kS2-IS-MBC"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="sg9-nV-Ojc" firstAttribute="leading" secondItem="aQl-bf-JhZ" secondAttribute="trailing" constant="9" id="DL9-Vm-iia"/>
+                    <constraint firstItem="sg9-nV-Ojc" firstAttribute="top" secondItem="WLx-ai-8d0" secondAttribute="bottom" constant="20" id="DP4-09-9UJ"/>
+                    <constraint firstItem="MCl-5H-f5e" firstAttribute="leading" secondItem="pUf-hQ-ass" secondAttribute="trailing" constant="8" id="Lft-og-Uao"/>
+                    <constraint firstItem="pUf-hQ-ass" firstAttribute="top" secondItem="WLx-ai-8d0" secondAttribute="bottom" constant="3" id="MUF-vQ-QeD"/>
+                    <constraint firstItem="p8q-z0-icU" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="OAR-OO-Cez"/>
+                    <constraint firstItem="aQl-bf-JhZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Ynj-7f-u2K"/>
+                    <constraint firstItem="p8q-z0-icU" firstAttribute="leading" secondItem="WLx-ai-8d0" secondAttribute="trailing" constant="8" id="fZQ-NY-nN3"/>
+                    <constraint firstItem="pUf-hQ-ass" firstAttribute="leading" secondItem="aQl-bf-JhZ" secondAttribute="trailing" constant="8" id="hBL-Ht-5C4"/>
+                    <constraint firstItem="WLx-ai-8d0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="lqr-Kh-sbU"/>
+                    <constraint firstItem="MCl-5H-f5e" firstAttribute="top" secondItem="WLx-ai-8d0" secondAttribute="bottom" constant="3" id="p7K-xU-ncX"/>
+                    <constraint firstItem="aQl-bf-JhZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="qgp-WJ-jju"/>
+                    <constraint firstItem="WLx-ai-8d0" firstAttribute="leading" secondItem="aQl-bf-JhZ" secondAttribute="trailing" constant="8" id="u5S-sm-qkn"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="p8q-z0-icU" secondAttribute="trailing" constant="7" id="yeh-cZ-R57"/>
+                </constraints>
             </tableViewCellContentView>
+            <animations/>
+            <point key="canvasLocation" x="249" y="264"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="product_square_box.png" width="160" height="160"/>
+    </resources>
 </document>

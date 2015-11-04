@@ -8,7 +8,8 @@
 
 #import "BaseViewController.h"
 #import "GreySearchTextField.h"
-#import "SearchViewController.h"
+#import "SearchView.h"
+
 
 @interface SearchResultViewController : BaseViewController<UITextFieldDelegate>
 

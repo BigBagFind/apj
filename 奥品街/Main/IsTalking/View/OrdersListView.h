@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OrdersCell.h"
+#import "DetailViewController.h"
+#import "UIView+ViewController.h"
 
-@interface OrdersListView : UITableView
+@interface OrdersListView : UITableView<UITableViewDataSource,UITableViewDelegate>
 
 @end

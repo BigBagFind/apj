@@ -10,4 +10,7 @@
 
 @interface BasePushViewController : BaseViewController
 
+
+- (void)leftAction;
+
 @end

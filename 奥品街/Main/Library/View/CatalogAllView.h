@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CatalogAllView : UIView
+@interface CatalogAllView : UIView<UIScrollViewDelegate>{
+    UIImageView *_selectedView;
+    NSInteger _selectTag;
+    UIScrollView *_scrollView;
+}
+
+@property (nonatomic,strong) NSArray *titles;
+@property (nonatomic,strong) NSArray *contentViews;
+
+- (instancetype)initWithFrame:(CGRect)frame Titles:(NSArray *)titles ContentViews:(NSArray *)contentViews;
+
 
 @end

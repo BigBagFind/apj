@@ -7,7 +7,7 @@
 //
 
 #import "BasePushViewController.h"
-
+#import "GoodsManagermentTableViewCell.h"
 @interface GoodsManagementViewController : BasePushViewController
 
 @end

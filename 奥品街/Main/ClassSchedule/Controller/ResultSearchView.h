@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SearchView.h"
+#import "SearchResultViewController.h"
+typedef void(^TransportText)(NSString *);
 
-@interface ResultSearchView : UIView
+@interface ResultSearchView : SearchView
+
+@property (nonatomic,copy)TransportText transportText;
 
 @end

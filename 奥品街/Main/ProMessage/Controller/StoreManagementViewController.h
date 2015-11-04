@@ -7,6 +7,8 @@
 //
 
 #import "BasePushViewController.h"
+#import "StoreManagermentViewCell.h"
+#import "UIViewController+AlertSheetAction.h"
 
 @interface StoreManagementViewController : BasePushViewController
 

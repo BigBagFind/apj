@@ -7,6 +7,8 @@
 //
 
 #import "BasePushViewController.h"
+#import "HelpTableView.h"
+
 
 @interface HelpCenterViewController : BasePushViewController
 

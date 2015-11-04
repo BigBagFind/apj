@@ -14,4 +14,15 @@
     
 }
 
+- (IBAction)addToShopAction:(UIButton *)sender {
+//    LoginViewController *loginVc = [[LoginViewController alloc]init];
+//    LoginNavController *nav = [[LoginNavController alloc]initWithRootViewController:loginVc];
+//    [self.viewController.navigationController presentViewController:nav animated:YES completion:^{
+//        
+//    }];
+}
+- (IBAction)AttentionAction:(AttentionButton *)sender {
+    
+}
+
 @end

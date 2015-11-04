@@ -10,4 +10,8 @@
 
 @interface HelpSectionHeaderButoon : UIButton
 
+@property (nonatomic,strong) UILabel *label;
+@property (nonatomic,strong) UIImageView *circleView;
+@property (nonatomic,strong) UIView *verticalLine;
+
 @end
