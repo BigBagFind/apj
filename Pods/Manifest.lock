@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - BaseModel (2.6.3)
   - FDFullscreenPopGesture (1.1)
   - MBProgressHUD (0.9.1)
   - SDWebImage (3.7.3):
@@ -28,12 +29,14 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5.3)
+  - BaseModel (~> 2.6.3)
   - FDFullscreenPopGesture (~> 1.1)
   - MBProgressHUD (~> 0.9.1)
   - SDWebImage (~> 3.7.2)
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  BaseModel: 4c9965bea266250b90e78bc1a1948d74e81d9e89
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
